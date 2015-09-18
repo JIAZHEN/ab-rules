@@ -1,9 +1,14 @@
-class AbRules
-  def split_test(*alternatives)
+module AbRules
+  def self.split(id, *alternatives)
     if block_given?
-      yield(alternatives[recipient.id % alternatives.size])
+      yield(alternatives[id % alternatives.size])
     else
-      alternatives[recipient.id % alternatives.size]
+      alternatives[id % alternatives.size]
     end
   end
+
+  def self.split(id, rules)
+    yield(rules.find{|r| r.match?}.content)
+  end
 end
+
