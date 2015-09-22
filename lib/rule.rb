@@ -1,13 +1,12 @@
 module AbRules
   class Rule
-    def initialize(subject, content = nil, &block)
-      @subject = subject
-      @content = content || subject
+    def initialize(content, &block)
+      @content = content
       @block = block
     end
 
-    def match?
-      @block ? @block.call : true
+    def match?(subjects = {})
+      @block ? @block.call(subjects) : true
     end
 
     def apply
