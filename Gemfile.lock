@@ -1,3 +1,8 @@
+PATH
+  remote: .
+  specs:
+    ab_rules (0.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -20,7 +25,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  rspec
+  ab_rules!
+  rspec (~> 3.3.0)
 
 BUNDLED WITH
    1.10.6
