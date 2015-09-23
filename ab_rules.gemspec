@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "ab_rules"
-  s.version     = "1.0.0"
+  s.version     = "1.0.1"
   s.date        = "2015-09-23"
   s.summary     = "A light weight ruby AB test library based on rules"
   s.description = "A light weight ruby AB test library based on rules"
