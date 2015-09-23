@@ -7,7 +7,6 @@ Gem::Specification.new do |s|
   s.authors     = ["Jiazhen Xie"]
   s.email       = "fdf515@gmail.com"
   s.files       = ["lib/ab_rules.rb"]
-  s.homepage    = "http://rubygems.org/gems/ab_rules"
+  s.homepage    = "https://github.com/JIAZHEN/ab-rules"
   s.license     = "MIT"
-  s.add_development_dependency "rspec", "~> 3.3.0"
 end

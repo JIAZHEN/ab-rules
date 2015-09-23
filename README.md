@@ -14,6 +14,8 @@ gem install ab_rules
 ## Usage
 Example: A/B testing by ID
 ```ruby
+require "ab_rules"
+
 AbRules.split_by_id(122, "control", "test")  #=> "control"
 AbRules.split_by_id(333, "control", "test")  #=> "test"
 
@@ -26,6 +28,8 @@ end
 
 Example: A/B testing by rules
 ```ruby
+require "ab_rules"
+
 SITES = [123, 567, 999]
 NETWORKS = [1, 4, 6]
 
