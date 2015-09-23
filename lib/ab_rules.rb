@@ -7,6 +7,8 @@ module AbRules
 
     def match?(subjects = {})
       @block ? @block.call(subjects) : true
+    rescue NoMethodError
+      false
     end
 
     def apply
