@@ -112,7 +112,7 @@ RSpec.describe AbRules do
       ]
     end
 
-    before do
+    before(:all) do
       SITES = [123, 567, 999]
       NETWORKS = [1, 4, 6]
     end
@@ -143,6 +143,21 @@ RSpec.describe AbRules do
 
       it "returns :worldpay" do
         expect(result).to eq("The gateway is worldpay")
+      end
+    end
+
+    context "when do not match any rule" do
+      let(:network) { double("network", :id => 3333) }
+      let(:member) { double("member", :id => 120) }
+      let(:subjects) { { member: member, network: network } }
+      let(:result) do
+        described_class.split_by_rule(subjects, rules) do |content|
+          "The gateway is #{content}"
+        end
+      end
+
+      it "returns :default" do
+        expect(result).to eq("The gateway is default")
       end
     end
   end
