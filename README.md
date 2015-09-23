@@ -52,3 +52,12 @@ AbRules.split_by_rule({}, rules) do |content|
 end
 #=> "Cotent is default"
 ```
+
+## Questions, Feedback
+Feel free to message me on Github (fdf515) or Twitter (@JIAZHENXIE) :)
+
+## Contributing to AbRules
+Fork, fix, then send a pull request.
+
+## Copyright
+Copyright (c) 2015 Jiazhen Xie. See MIT-LICENSE for further details.
