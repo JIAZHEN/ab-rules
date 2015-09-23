@@ -16,6 +16,10 @@ module AbRules
     end
   end
 
+  def self.rule(content, &block)
+    Rule.new(content, &block)
+  end
+
   def self.split_by_id(id, *alternatives)
     content = alternatives.flatten[id % alternatives.size]
     block_given? ? yield(content) : content

@@ -26,21 +26,19 @@ end
 
 Example: A/B testing by rules
 ```ruby
-include AbRules
-
 SITES = [123, 567, 999]
 NETWORKS = [1, 4, 6]
 
 rules = [
-  Rule.new(:control) do |subjects|
+  AbRules.rule(:control) do |subjects|
     subjects[:country] == "uk"
   end,
 
-  Rule.new(:test) do |subjects|
+  AbRules.rule(:test) do |subjects|
     subjects[:id] && subjects[:id].even?
   end,
 
-  Rule.new(:default)
+  AbRules.rule(:default)
 ]
 
 AbRules.split_by_rule({ country: "uk" }, rules)  #=> :control

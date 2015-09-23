@@ -47,8 +47,8 @@ RSpec.describe AbRules do
 
   describe ".split_by_rule" do
     let(:subject) { double("subject", :id => id) }
-    let(:rule_one) { described_class::Rule.new("control") { subject.id.even? } }
-    let(:rule_two) { described_class::Rule.new("test") { subject.id.odd? } }
+    let(:rule_one) { described_class.rule("control") { subject.id.even? } }
+    let(:rule_two) { described_class.rule("test") { subject.id.odd? } }
 
     context "when block is not given" do
       let(:content) { described_class.split_by_rule(subject, rule_one, rule_two) }
@@ -71,7 +71,7 @@ RSpec.describe AbRules do
     end
 
     context "when block is given" do
-      let(:rule_three) { described_class::Rule.new("mid") { subject.id.odd? && subject.id % 3 == 0 } }
+      let(:rule_three) { described_class.rule("mid") { subject.id.odd? && subject.id % 3 == 0 } }
 
       let(:content) do
         described_class.split_by_rule(subject, rule_three, rule_one, rule_two) do |alter|
@@ -100,15 +100,15 @@ RSpec.describe AbRules do
   describe "gateawy selector" do
     let(:rules) do
       [
-        described_class::Rule.new(:wirecard) do |subjects|
+        described_class.rule(:wirecard) do |subjects|
           subjects[:country] == "uk" && SITES.include?(subjects[:site].id)
         end,
 
-        described_class::Rule.new(:worldpay) do |subjects|
+        described_class.rule(:worldpay) do |subjects|
           subjects[:member].id.even? && NETWORKS.include?(subjects[:network].id)
         end,
 
-        described_class::Rule.new(:default)
+        described_class.rule(:default)
       ]
     end
 
